@@ -62,6 +62,7 @@ int main() {
     AllocOrderTest();
     ResetTest();
     AllocWithoutMake();
+    DoubleMakeAlloc();
 
     std::cout << "Success!\n";
 }
