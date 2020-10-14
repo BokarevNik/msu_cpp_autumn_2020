@@ -8,14 +8,14 @@ Allocator::Allocator() {
 }
 void Allocator::makeAllocator(size_t maxsize) {
     if (begin != nullptr) {
-        ::operator delete(begin);
+        delete[] begin;
     }
     begin = new char[maxsize];
     offset = 0;
     memsize = maxsize;
 }
 Allocator::~Allocator() {
-    ::operator delete(begin);
+    delete[] begin;
     begin = nullptr;
 }
 char* Allocator::alloc(std::size_t size){
