@@ -7,9 +7,7 @@ Allocator::Allocator() {
     memsize = 0;
 }
 void Allocator::makeAllocator(size_t maxsize) {
-    if (begin != nullptr) {
-        delete[] begin;
-    }
+    delete[] begin;
     begin = new char[maxsize];
     offset = 0;
     memsize = maxsize;
