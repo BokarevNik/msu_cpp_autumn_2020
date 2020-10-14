@@ -3,14 +3,16 @@ FLAGS=-std=c++17
 
 all: test
 
-test: test.o alloc.o
+test: test_
+	./test
+test_: test.o alloc.o
 	$(CC) $(FLAGS) test.o alloc.o -o test
 
-alloc: alloc.cpp
-	$(CC) $(FLAGS) -c alloc.cpp -o alloc
+alloc.o: alloc.cpp
+	$(CC) $(FLAGS) -c alloc.cpp -o alloc.o
 
-test_: test.cpp
-	$(CC) $(FLAGS) test.cpp -o test
+test.o: test.cpp
+	$(CC) $(FLAGS) -c test.cpp -o test.o
 
 clean:
-	rm -f test alloc
+	rm -f test alloc.o test.o

@@ -5,8 +5,9 @@
 void InitTest() {
     Allocator Allocator;
     Allocator.makeAllocator(10);
-    char* str = Allocator.alloc(10);
-    assert(str[9] == str[9]);
+    char *str = nullptr;
+    str = Allocator.alloc(10);
+    assert(str != nullptr);
 }
 
 void OverSizeTest() {
@@ -41,12 +42,26 @@ void ResetTest() {
     assert(first == second);
 }
 
+void AllocWithoutMake(){
+    Allocator Allocator;
+    char* first = Allocator.alloc(50);
+    assert(first == nullptr);
+}
+void DoubleMakeAlloc(){
+    Allocator Allocator;
+    Allocator.makeAllocator(100);
+    Allocator.makeAllocator(50);
+    char* first = Allocator.alloc(5);
+    assert(first != nullptr);
+}
+
 int main() {
     InitTest();
     OverSizeTest();
     DoubleOverSizeTest();
     AllocOrderTest();
     ResetTest();
+    AllocWithoutMake();
 
     std::cout << "Success!\n";
 }
