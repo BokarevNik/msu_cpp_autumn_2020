@@ -4,6 +4,7 @@
 Allocator::Allocator() {
     begin = nullptr;
     offset = 0;
+    memsize = 0;
 }
 void Allocator::makeAllocator(size_t maxsize) {
     if (begin != nullptr) {
