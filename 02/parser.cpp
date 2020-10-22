@@ -13,7 +13,7 @@ TokenParser::TokenParser() {
 
 TokenParser::~TokenParser() {}
 
-void TokenParser::ParserGetStr(const std::string str) {
+void TokenParser::ParserGetStr(const std::string &str) {
     StrToTokenize = str;
 }
 
@@ -33,14 +33,14 @@ void TokenParser::SetStrTokenCallback(TokenFuncPtr UserFunc) {
     StrTokenHandler = UserFunc;
 }
 
-bool TokenParser::IsDigitToken(const std::string Token) {
+bool TokenParser::IsDigitToken(const std::string &Token) {
     for (const char& c : Token) {
         if (!std::isdigit(c)) return false;
     }
     return true;
 }
 
-void TokenParser::TokenProcess(const std::string Token) {
+void TokenParser::TokenProcess(const std::string &Token) {
     if (IsDigitToken(Token)) {
         DigitalTokenHandler(Token);
     } else {

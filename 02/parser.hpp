@@ -1,4 +1,6 @@
 #include <functional>
+#include <string>
+#include <sstream>
 #pragma once
 
 
@@ -16,13 +18,13 @@ private:
 
 public:
     TokenParser();
-    void ParserGetStr(const std::string str);
+    void ParserGetStr(const std::string &str);
     void SetStartCallback(EndStart UserStartCallback);
     void SetDigitalTokenCallback(TokenFuncPtr UserDigitTokenFunc);
     void SetStrTokenCallback(TokenFuncPtr UserStrTokenFunc);
     void SetEndCallback(EndStart UserEndCallback);
-    bool IsDigitToken(const std::string str);
+    bool IsDigitToken(const std::string &str);
     void StrProcess();
-    void TokenProcess(const std::string Token);
+    void TokenProcess(const std::string &Token);
     ~TokenParser();
 };
