@@ -61,4 +61,5 @@ int main() {
     StartCallbackCheck();
 
     std::cout << "Success!\n";
+    return 0;
 }
