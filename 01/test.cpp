@@ -2,7 +2,7 @@
 #include <cassert>
 #include <iostream>
 
-void InitTest() {
+void initTest() {
     Allocator Allocator;
     Allocator.makeAllocator(10);
     char *str = nullptr;
@@ -10,14 +10,14 @@ void InitTest() {
     assert(str != nullptr);
 }
 
-void OverSizeTest() {
+void overSizeTest() {
     Allocator Allocator;
     Allocator.makeAllocator(100);
     char* ptr = Allocator.alloc(101);
     assert(ptr == nullptr);
 }
 
-void DoubleOverSizeTest() {
+void doubleOverSizeTest() {
     Allocator Allocator;
     Allocator.makeAllocator(100);
     char* ptr = Allocator.alloc(50);
@@ -25,7 +25,7 @@ void DoubleOverSizeTest() {
     assert(ptr == nullptr);
 }
 
-void AllocOrderTest() {
+void allocOrderTest() {
     Allocator Allocator;
     Allocator.makeAllocator(100);
     char* first = Allocator.alloc(20);
@@ -33,7 +33,7 @@ void AllocOrderTest() {
     assert(first + 20 == second);
 }
 
-void ResetTest() {
+void resetTest() {
     Allocator Allocator;
     Allocator.makeAllocator(100);
     char* first = Allocator.alloc(50);
@@ -42,12 +42,12 @@ void ResetTest() {
     assert(first == second);
 }
 
-void AllocWithoutMake(){
+void allocWithoutMake(){
     Allocator Allocator;
     char* first = Allocator.alloc(50);
     assert(first == nullptr);
 }
-void DoubleMakeAlloc(){
+void doubleMakeAlloc(){
     Allocator Allocator;
     Allocator.makeAllocator(100);
     Allocator.makeAllocator(50);
@@ -56,13 +56,13 @@ void DoubleMakeAlloc(){
 }
 
 int main() {
-    InitTest();
-    OverSizeTest();
-    DoubleOverSizeTest();
-    AllocOrderTest();
-    ResetTest();
-    AllocWithoutMake();
-    DoubleMakeAlloc();
+    initTest();
+    overSizeTest();
+    doubleOverSizeTest();
+    allocOrderTest();
+    resetTest();
+    allocWithoutMake();
+    doubleMakeAlloc();
 
     std::cout << "Success!\n";
 }
