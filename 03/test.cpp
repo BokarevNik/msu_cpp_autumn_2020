@@ -4,44 +4,44 @@
 #include <sstream> 
 
 void RowsColsTest() {
-    const size_t rows = 5;
-    const size_t cols = 3;
+    const int rows = 5;
+    const int cols = 3;
     Matrix m(rows, cols);
     assert((m.getRows() == 5) && (m.getColumns() == 3));
 }
 
 void AccessToElementTest() {
-    const size_t rows = 5;
-    const size_t cols = 3;
+    const int rows = 5;
+    const int cols = 3;
     Matrix m(rows, cols);
     assert(0 == m[2][2]);
 }
 
 void SetElemTest() {
-    const size_t rows = 5;
-    const size_t cols = 3;
+    const int rows = 5;
+    const int cols = 3;
     Matrix m(rows, cols);
     m[0][2] = 5;
     assert(m[0][2] == 5);
 }
 
 void CatchOutofRangeTest() {
-    const size_t rows = 5;
-    const size_t cols = 3;
+    const int rows = 5;
+    const int cols = 3;
     Matrix m(rows, cols);
     bool flag = false;
     try{
         m[5][5] = 5;
     }
-    catch(std::out_of_range) {
+    catch(std::out_of_range&) {
         flag = true;
     }
     assert(flag == true);
 }
 
 void ScalarMultTest() {
-    const size_t rows = 5;
-    const size_t cols = 5;
+    const int rows = 5;
+    const int cols = 5;
     Matrix m(rows, cols);
     for(int i = 0; i < rows; i++)
         for(int j = 0; j < cols; j++)
@@ -51,8 +51,8 @@ void ScalarMultTest() {
 }
 
 void MatrixSumTest() {
-    const size_t rows = 5;
-    const size_t cols = 5;
+    const int rows = 5;
+    const int cols = 5;
     Matrix m1(rows, cols);
     Matrix m2(rows, cols);
     for(int i = 0; i < rows; i++)
@@ -70,16 +70,16 @@ void MatrixSumTest() {
 }
 
 void IsEqualTest() {
-    const size_t rows = 5;
-    const size_t cols = 5;
+    const int rows = 5;
+    const int cols = 5;
     Matrix m1(rows, cols);
     Matrix m2(rows, cols);
     assert(m1 == m2);
 }
 
 void IsNonEqualTest() {
-    const size_t rows = 5;
-    const size_t cols = 5;
+    const int rows = 5;
+    const int cols = 5;
     Matrix m1(rows, cols);
     Matrix m2(rows, cols);
     m2[4][4] = 3;
@@ -87,8 +87,8 @@ void IsNonEqualTest() {
 }
 
 void StreamTest() {
-    const size_t rows = 5;
-    const size_t cols = 5;
+    const int rows = 5;
+    const int cols = 5;
     Matrix m1(rows, cols);
     std::stringstream PrintStream;
     PrintStream << m1 << std::endl;

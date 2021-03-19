@@ -12,7 +12,7 @@ int& MatrixProxy::operator[](const int column) {
         throw std::out_of_range("");
     }
     CurrentCol_ = column;
-    return ProxyMatrix_[CurrentRow_ * MaxColumns_ + column];
+    return ProxyMatrix_[CurrentRow_ * MaxColumns_ + CurrentCol_];
 }
 
 MatrixProxy Matrix::operator[](const int row) {
@@ -23,7 +23,7 @@ MatrixProxy Matrix::operator[](const int row) {
     return proxy;
 }
 
-MatrixProxy::~MatrixProxy() {}
+MatrixProxy::~MatrixProxy() = default;
 
 Matrix::Matrix(const int rows, const int columns) {
     MatrixPtr_ = new int[rows * columns];

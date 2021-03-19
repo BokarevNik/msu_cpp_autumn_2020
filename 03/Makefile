@@ -1,5 +1,5 @@
 CC=g++
-FLAGS=-std=c++17
+FLAGS=-std=c++17 -Wall
 
 all: test
 
